@@ -24,25 +24,19 @@
                 </div>
                 <div class="elements pending categories" >Pending</div>
                 <div class="elements completed categories ">Completed</div>
-                <div class="elements close categories ">Exparing soon</div>
+                <div class="elements close categories ">Expiring soon</div>
             </div>
         </section>
-        <section class="body-app">
-            <div class="content-body-app">
-                <div class="adding-container">+</div>
-                <div class="activity">
-                    <p>this is the activity you have to do</p>
-                    <div class="time">00:00</div>
-                    <div id="erase">-</div>
-                </div>
-            </div>
-            <div class="content-body-app">
-                <div class="adding-container">+</div>
-                <div class="activity">
-                    <p>Lorem ipsum dolor sit amet.</p>
-                    <div class="time">00:00</div>
-                    <div id="erase">-</div>
-                </div>
+        <section class="body-app" id="body">
+            <form class="container-notes" action="" id="writing-task">
+                <label for="task">Task:</label>
+                <input type="text" id="task" required>
+                <button type="submit" class="buttons">Add</button>
+            </form>
+            <div class="container-notes">
+                <button class="buttons" id="plus">+</button>
+                <div class="note">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero, iste.</div>
+                <button class="buttons" id="erase">-</button>
             </div>
         </section>
     </header>
