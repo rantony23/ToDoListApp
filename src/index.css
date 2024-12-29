@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    background-color: var(--primary-color);
+}
 /* Navbar */
 header{
     width: 100vw;
@@ -17,11 +20,12 @@ header{
     position: fixed;
     left: 0;
     height: 100vh;
-    background-color: red;
+    background-color:var(--third-color);
     justify-content: start;
     text-align: center;
     width: 200px;
     transition: width 0.3s ease;
+    color: var(--fourth-color);
 }
 .container-navbar{
     padding-top: 50px;
@@ -53,16 +57,18 @@ header{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 25px;
     margin: 50px 0 0 0;
-    justify-content: center;                          
+    justify-content: center; 
+    color: var(--primary-color);
+    font-weight: 500;                         
 }
 
 
 .container-notes{
-    width: 60%;
+    width: 70%;
     text-align: center;
-    height: 100px;
+    height: 120px;
     display: flex;
     flex-wrap: nowrap;
     border: 2px solid black;
@@ -71,6 +77,7 @@ header{
     align-items: center;
     padding: 0 50px;
     overflow: hidden;
+    background: var(--third-color);
 }
 .buttons{
     width: 50px;
@@ -80,16 +87,31 @@ header{
     outline: 1px solid black;
     cursor: pointer;
     transition: transform 0.3s ease;
+    background-color: var(--second-color);
 }
 .buttons:hover{
     transform: scale(1.07);
+    background-color: var(--primary-color);
+    color: var(--fifth-color);
+}
+#for-task{
+    color: var(--primary-color);
+    font-size: x-large;
 }
 #task{
-    width: 50%;
-    height: 60%;
+    width: 40rem;
+    height: 2rem;
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
+    background-color: var(--fourth-color);
+    color: var(--primary-color);
+}
+#Add{
+    background-color: var(--fourth-color);
+}
+#Add:hover{
+    background-color: var(--primary-color);
 }
 @media screen and (max-width:700px){
     .navbar{
@@ -97,5 +119,8 @@ header{
     }
     .menu-hidden{
         width: 50px;
+    }
+    #task{
+        width: 15rem;
     }
 }

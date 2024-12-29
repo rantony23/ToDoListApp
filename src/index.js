@@ -40,6 +40,17 @@ function divMaker(valor){
         active = !active;
         if(active === true){
             note.innerHTML = `<input class="note" type="text" value="${valor}">`
+            const input = note.querySelector('input');
+            if(window.innerWidth< 700){
+                input.style.width = '15rem';
+                input.style.height = '2rem';
+            }
+            if(window.innerWidth > 700){
+                input.style.width = '40rem';
+                input.style.height = '2rem';
+            }
+            input.style.background = 'var(--fourth-color)';
+            input.style.borderRadius = '5px';
         }else{
             const saved = note.querySelector('input').value;
             if(saved){
