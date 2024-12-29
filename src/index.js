@@ -6,10 +6,12 @@
 const menu = document.getElementById('menu');
 const elements = document.querySelectorAll('.elements');
 const nav =  document.getElementById('navbar');
-const adding = document.getElementById('adding');
-const cuerpo = document.getElementById('body');
-const borrar = document.getElementById('erase');
-let notas = document.querySelectorAll('content-body-app');
+const cuerpo = document.getElementById('body');// donde agregar el nuevo div
+const add = document.getElementById('add');
+let task = document.getElementById('task');
+let active = false;
+let containerNotes = document.getElementsByClassName('container-notes');
+
 
 menu.addEventListener('click', () =>{
     elements.forEach( elemento =>{
@@ -17,22 +19,42 @@ menu.addEventListener('click', () =>{
     })
     nav.classList.toggle('menu-hidden');
 });
-adding.addEventListener('click', () =>{
+
+function divMaker(valor){
     const nuevoDiv = document.createElement('div');
-    nuevoDiv.classList = 'content-body-app';
+    nuevoDiv.classList.add('container-notes');
     nuevoDiv.innerHTML = `
-                    <div class="adding-container">+</div>
-                <div class="activity">
-                    <p></p>
-                    <div class="time">00:00</div>
-                    <div id="erase">-</div>
-                </div>
+        <button class="buttons edit">Edit</button>
+        <div class="note">${valor}</div>
+        <button class="buttons erase">-</button>
     `;
     cuerpo.appendChild(nuevoDiv);
 
-    notas = document.querySelectorAll('.content-body-app');
-    console.log(notas);
+    const erase = nuevoDiv.querySelector('.erase');
+    erase.addEventListener('click', () =>{
+        nuevoDiv.remove();
+    })
+    const note = nuevoDiv.querySelector('.note');
+    const edit = nuevoDiv.querySelector('.edit');
+    edit.addEventListener('click', () =>{
+        active = !active;
+        if(active === true){
+            note.innerHTML = `<input class="note" type="text" value="${valor}">`
+        }else{
+            const saved = note.querySelector('input').value;
+            if(saved){
+                note.innerHTML = `<div class="note">${saved}</div>`;
+                valor = saved;
+            }
+        }
+    });
+
+};
+
+document.getElementById('writing-task').addEventListener('submit', (event) => {
+    event.preventDefault(); // Evitar que se recargue la página
+    const newValue = task.value;
+    divMaker(newValue);
+    task.value = ''; // Limpiar el campo después de agregar la tarea
 });
-borrar.addEventListener('click', () =>{
-    
-})
+
